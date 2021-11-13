@@ -1,0 +1,35 @@
+<resources>
+
+    <style name="mis_servici">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#004461</item>
+    </style>
+
+
+    <style name="subtexto_solic">
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="subtexto_solic2">
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textColor">#898989</item>
+    </style>
+
+    <style name="titulo_solicitudes">
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="android:textColor">#004461</item>
+    </style>
+
+
+    <style name="label">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">#004461</item>
+    </style>
+
+</resources>

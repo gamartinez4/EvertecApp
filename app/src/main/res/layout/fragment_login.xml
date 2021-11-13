@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewModel.ViewModelClass" />
+        <import type="android.view.View"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+      >
+
+        <include
+        android:id="@+id/include"
+        layout="@layout/header_forms"
+        bind:title ="@{`Login`}"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/user_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:hint="Usuario">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/user)}"
+                android:text="@{viewModel.user}"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/user_layout"
+            app:layout_constraintStart_toStartOf="@+id/user_layout"
+            app:layout_constraintTop_toBottomOf="@+id/user_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/password)}"
+                android:text="@{viewModel.password}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_button"
+            style="@style/subtexto_solic"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_content_form_light"
+            android:onClick="@{() -> viewModel.screenController(loginButton,@id/login_button)}"
+            android:text="Ingresar"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintBottom_toBottomOf="parent"
+            bind:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

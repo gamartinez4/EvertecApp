@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.viewModel.ViewModelClass" />
+        <import type="android.view.View"/>
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E9E9E9">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/header_forms"
+            bind:title ="@{`Compra de producto`}"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/payment_button"
+            style="@style/subtexto_solic"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:background="@drawable/button_content_form_light"
+            android:onClick="@{() -> viewModel.screenController(paymentButton,@id/login_button)}"
+            android:text="Continuar"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            bind:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
