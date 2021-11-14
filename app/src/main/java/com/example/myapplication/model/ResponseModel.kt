@@ -6,11 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class ResponseModel (
-    @PrimaryKey(autoGenerate = false)
-    val id:String,
-    val firstName:String,
-    val lastName:String,
-    val image:String,
-    val description:String,
-    val rating:String
+    @PrimaryKey(autoGenerate = true)
+    var id:Int = 0,
+    var names:String = "",
+    var surnames:String =  "",
+    var creditNumber:String = "",
+    var price:String = "",
+    var buyDate:String = "",
+    var state:String = ""
 )

@@ -7,21 +7,22 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.databinding.ItemBinding
+import com.example.myapplication.fragments.ListFragment
 import com.example.myapplication.model.ResponseModel
 import com.example.myapplication.utils.animation.Animations
 import com.example.myapplication.viewModel.ViewModelClass
+import kotlinx.android.synthetic.main.item.view.*
 
 
 class AdapterResponse(
-    private var viewModel: ViewModelClass,
+    private var listFragment: ListFragment,
     private var array:ArrayList<ResponseModel>
     ) : RecyclerView.Adapter<AdapterResponse.ViewHolderList>() {
 
     inner class ViewHolderList(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
         init {
-            itemView.setOnClickListener {
-                Navigation.findNavController(it).navigate(R.id.details_fragment,null, Animations.options_slide_in)
-                viewModel.selectedValue.value = binding.response
+            itemView.erase.setOnClickListener{
+                listFragment.eraseElementAndRefresh(binding.item!!,array)
             }
         }
     }
@@ -31,7 +32,7 @@ class AdapterResponse(
     }
 
     override fun onBindViewHolder(holder: ViewHolderList, position: Int) {
-        holder.binding.response = array[position]
+        holder.binding.item = array[position]
         }
 
     override fun getItemCount() = array.size

@@ -13,13 +13,142 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E9E9E9">
+        >
 
         <include
             android:id="@+id/include"
             layout="@layout/header_forms"
             bind:title ="@{`Compra de producto`}"/>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/names_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:hint="Nombres"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toTopOf="@+id/include">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/names"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/names)}"
+                android:text="@{viewModel.names}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/surnames_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Apellidos"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toBottomOf="@+id/names_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/surnames"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/surnames)}"
+                android:text="@{viewModel.surnames}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/credit_number_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Numero de tarjeta de credito"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toBottomOf="@+id/surnames_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/credit_number"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/credit_number)}"
+                android:text="@{viewModel.creditNumber}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Email"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toBottomOf="@+id/credit_number_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/email)}"
+                android:text="@{viewModel.email}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cellphone_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Número de celular"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toBottomOf="@+id/email_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cellphone"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/cellphone)}"
+                android:text="@{viewModel.cellphone}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Monto a pagar"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toBottomOf="@+id/cellphone_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/price"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/price)}"
+                android:text="@{viewModel.price}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/verification_code_layout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="Codigo de verificación"
+            bind:layout_constraintEnd_toEndOf="parent"
+            bind:layout_constraintStart_toStartOf="@+id/include"
+            bind:layout_constraintTop_toBottomOf="@+id/price_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/verification_code"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onTextChanged="@{(chr,i1,i2,i3)-> viewModel.fieldTextChanged(chr,@id/verification_code)}"
+                android:text="@{viewModel.verificationCode}" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/payment_button"
@@ -27,12 +156,24 @@
             android:layout_width="300dp"
             android:layout_height="0dp"
             android:background="@drawable/button_content_form_light"
-            android:onClick="@{() -> viewModel.screenController(paymentButton,@id/login_button)}"
+            android:onClick="@{() -> viewModel.screenController(paymentButton,@id/payment_button)}"
             android:text="Continuar"
             android:layout_marginBottom="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             bind:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging"
+            android:elevation="1dp"
+            android:visibility="@{viewModel.stateRequest}"
+            android:layout_width="230dp"
+            android:layout_height="230dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_loop="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

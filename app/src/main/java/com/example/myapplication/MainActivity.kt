@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed(){
         when(fragmentId){
             R.id.home_fragment ->Navigation.findNavController(fragment).navigate(R.id.login_fragment,null, Animations.options_fade)
-            R.id.details_fragment-> Navigation.findNavController(fragment).navigate(R.id.payment_fragment,null, Animations.options_slide_out)
+            R.id.details_fragment-> Navigation.findNavController(fragment).navigate(R.id.home_fragment,null, Animations.options_slide_out)
             R.id.payment_fragment-> Navigation.findNavController(fragment).navigate(R.id.home_fragment,null, Animations.options_slide_out)
             R.id.list_fragment-> Navigation.findNavController(fragment).navigate(R.id.home_fragment,null, Animations.options_slide_out)
          }
